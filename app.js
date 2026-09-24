@@ -1,0 +1,1 @@
+const tick=()=>document.querySelector('#clock').textContent=new Date().toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'});tick();setInterval(tick,30000);document.querySelectorAll('[data-open]').forEach(x=>x.onclick=()=>window.open(x.dataset.open,'_blank','noopener'));if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js');
