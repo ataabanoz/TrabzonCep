@@ -3,21 +3,24 @@
 <meta name="theme-color" content="#08131d"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="TrabzonCep">
 <link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./style.css"><title>TrabzonCep</title></head>
 <body><header><div><b>TRABZON<span>CEP</span></b><small>Şehir • Ulaşım • Günlük Yaşam</small></div><div id="clock">--:--</div></header>
-<main><section class="welcome"><span>TRABZON • ŞEHİR ASİSTANI</span><h1>Şehir cebinde.</h1><p>Ulaşım, kameralar, eczaneler ve belediye hizmetlerine tek ekrandan ulaş.</p></section>
+<main>
+<section id="home" class="page active"><section class="welcome"><span>TRABZON • ŞEHİR ASİSTANI</span><h1>Şehir cebinde.</h1><p>Ulaşım ve günlük şehir bilgilerini uygulamanın içinde görüntüle.</p></section>
 <div class="quick">
-<button data-open="https://ulasim.trabzon.bel.tr/"><i>🚌</i><b>Otobüsüm Nerede?</b><small>Durak • yaklaşan araç</small></button>
-<button data-open="https://kurumsal.trabzon.bel.tr/otobussaatleri"><i>🕐</i><b>Sefer Saatleri</b><small>Hat • hareket saatleri</small></button>
-<button data-open="https://www.trabzon.bel.tr/Web/SehirKameralari"><i>📹</i><b>Şehir Kameraları</b><small>Resmî canlı kameralar</small></button>
-<button data-open="https://www.trabzon.bel.tr/NobetciEczaneler"><i>💊</i><b>Nöbetçi Eczane</b><small>İlçe • adres • telefon</small></button>
+<button data-page="bus"><i>🚌</i><b>Otobüs & Sefer</b><small>Hatları uygulama içinde aç</small></button>
+<button data-page="pharmacy"><i>💊</i><b>Nöbetçi Eczane</b><small>Listeyi uygulama içinde gör</small></button>
+<button data-open="https://www.trabzon.bel.tr/Web/SehirKameralari"><i>📹</i><b>Şehir Kameraları</b><small>Resmî kamera sistemi</small></button>
+<button data-open="https://www.google.com/maps/@41.002,39.717,12z/data=!5m1!1e1"><i>🚦</i><b>Canlı Trafik</b><small>Google trafik katmanı</small></button>
 </div>
-<h2>🚦 Trafik & Ulaşım</h2><div class="cards">
-<a href="https://www.google.com/maps/@41.002,39.717,12z" target="_blank"><span>🗺️</span><div><b>Canlı Trafik Haritası</b><small>Trabzon yol yoğunluğunu aç</small></div><strong>›</strong></a>
-<a href="https://ulasim.trabzon.bel.tr/" target="_blank"><span>🚏</span><div><b>Durak Ara</b><small>Durak kodu ve yaklaşan otobüsler</small></div><strong>›</strong></a>
-<a href="https://trabzon.bel.tr/otopark-ucretleri/" target="_blank"><span>🅿️</span><div><b>Otopark</b><small>Belediye otopark bilgileri</small></div><strong>›</strong></a></div>
-<h2>🏙️ Şehir Hizmetleri</h2><div class="cards">
-<a href="https://www.trabzon.bel.tr/" target="_blank"><span>🏛️</span><div><b>Belediye Hizmetleri</b><small>E-hizmetler • başvurular</small></div><strong>›</strong></a>
-<a href="https://www.trabzon.bel.tr/NobetciEczaneler" target="_blank"><span>🏥</span><div><b>Sağlık & Eczane</b><small>Güncel nöbetçi eczaneler</small></div><strong>›</strong></a>
-<a href="tel:153"><span>☎️</span><div><b>ALO 153</b><small>Trabzon Büyükşehir iletişim</small></div><strong>›</strong></a></div>
-<div class="note"><b>TrabzonCep v1.0</b><p>Resmî belediye verisi olan hizmetlerde doğrudan resmî sisteme geçiş yapılır. Uydurma canlı trafik, otobüs veya otopark verisi gösterilmez.</p></div>
-</main><nav><button class="active">🏠<span>Ana Sayfa</span></button><button data-open="https://ulasim.trabzon.bel.tr/">🚌<span>Ulaşım</span></button><button data-open="https://www.trabzon.bel.tr/Web/SehirKameralari">📹<span>Kamera</span></button><button data-open="https://www.trabzon.bel.tr/NobetciEczaneler">💊<span>Eczane</span></button></nav>
+<div class="note"><b>TrabzonCep v1.1</b><p>Otobüs seferleri ve nöbetçi eczane bilgileri artık TrabzonCep ekranlarında gösteriliyor. Canlı araç konumu için doğrulanmış erişilebilir veri bağlantısı bulunmadan sahte konum gösterilmez.</p></div></section>
+
+<section id="bus" class="page"><div class="pagehead"><button class="back" data-page="home">‹</button><div><h1>🚌 Otobüs & Sefer</h1><p>Resmî AKUS verilerinden doğrulanan hatlar</p></div></div>
+<input id="routeSearch" class="search" placeholder="Hat veya güzergâh ara…">
+<div id="routes" class="route-list"></div><div id="schedule" class="detail hidden"></div></section>
+
+<section id="pharmacy" class="page"><div class="pagehead"><button class="back" data-page="home">‹</button><div><h1>💊 Nöbetçi Eczaneler</h1><p>Trabzon Büyükşehir Belediyesi verisi</p></div></div>
+<input id="pharmacySearch" class="search" placeholder="Eczane veya ilçe ara…">
+<div class="stamp">25 Eylül 2026 sabah nöbet listesi • Kaynak: Trabzon Büyükşehir Belediyesi</div>
+<div id="pharmacies" class="route-list"></div></section>
+</main>
+<nav><button data-page="home" class="active">🏠<span>Ana Sayfa</span></button><button data-page="bus">🚌<span>Ulaşım</span></button><button data-open="https://www.trabzon.bel.tr/Web/SehirKameralari">📹<span>Kamera</span></button><button data-page="pharmacy">💊<span>Eczane</span></button></nav>
 <script src="./app.js"></script></body></html>

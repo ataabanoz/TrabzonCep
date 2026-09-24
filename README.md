@@ -1,2 +1,2 @@
-# TrabzonCep v1.0
-TrabzonHava'dan bağımsız şehir ve ulaşım PWA'sı.
+# TrabzonCep v1.1
+Otobüs seferleri ve nöbetçi eczaneler için uygulama içi ekranlar eklendi.
